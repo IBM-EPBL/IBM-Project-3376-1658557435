@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+}
+
+:root {
+  --bg-color: #202124
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+
+  background-color: var(--bg-color);
+}
+
+.profile-image-body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-color);
+  object-fit: cover;
+}
+
+.profile-image {
+  width: 100%;
+  height: 99%;
+  padding-top: 1%;
+  background-color: var(--bg-color);
+  border-radius: 50px;
+  object-fit: cover;
+}
+
+.bio {
+  padding: 2em;
+  color: white;
+  background-color: var(--bg-color);
+}
+
+.project-section {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  align-items: flex-start;
+  grid-gap: 1em;
+}
+
+.project-card {
+  padding: 1em;
+  border-radius: 1em;
+  text-align: center;
+  background-color: rgb(22, 22, 22);
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  background-color: var(--bg-color);
+  border-radius: 0.5em;
+  padding: 0.5em;
+}
+
+.progress-bg {
+  height: 10px;
+  border-radius: 5px;
+  background-color: rgb(0, 0, 0);
+}
+
+.progress {
+  height: 100%; 
+  border-radius: 1em;
+  background-color: rgb(211, 209, 209);
+}
