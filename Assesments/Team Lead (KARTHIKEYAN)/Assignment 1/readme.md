@@ -1,3 +1,4 @@
 # Assignment 1
 
-developed a about-me page. 
+- [x] developed a about-me page -> index.html
+- [x] developed a responsive page -> responsive_page.html
