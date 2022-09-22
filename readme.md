@@ -3,4 +3,4 @@
 |Assignment|Status|
 |-|-|
 |Assignment 1 | completed|
-|Assignment 2 | working|
+|Assignment 2 | completed|
