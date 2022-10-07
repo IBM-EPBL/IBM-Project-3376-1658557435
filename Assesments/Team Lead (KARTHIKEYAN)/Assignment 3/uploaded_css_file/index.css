@@ -1,0 +1,28 @@
+body {
+    background-color: black;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-family: monospace;
+}
+
+main {    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+section {
+    margin: 10px;
+}
+
+img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(102, 102, 102, 0.5), 0 6px 20px 0 rgba(138, 138, 138, 0.233);
+}
