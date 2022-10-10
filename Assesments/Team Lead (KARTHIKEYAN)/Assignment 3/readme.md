@@ -1,4 +1,4 @@
-# Assignment 2 - Flask Application
+# Assignment 3
 
 - [x] Create a Bucket in IBM object storage.
 - [x] Upload 5 images to ibm object storage and make it public. write html code to displaying all the 5 images.
