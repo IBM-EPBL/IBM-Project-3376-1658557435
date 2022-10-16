@@ -3,5 +3,6 @@ tests
 extras
 
 .vscode
+.raw
 
 DigiCertGlobalRootCA.crt
