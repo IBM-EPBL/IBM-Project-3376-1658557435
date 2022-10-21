@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h1 style="text-align: center; margin-bottom: 20px;">Job Offers</h1>
+
+<div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 10px;">
+  {%for i in range(0, len)%}
+
+  <div
+    style="width: 500px; padding: 20px; border-radius: 10px; border-style: solid; border-color: rgb(243, 243, 243); display: flex; flex-direction: column; gap: 10px">
+
+    <h4>{{offers[i].name}}</h4>
+    <p>{{offers[i].location}}</p>
+    <div>
+      <p style="background: rgb(235, 235, 235); padding: 5px; border-radius: 5px; display: inline;">From Rs.{{offers[i].salary}} a month</p>
+    </div>
+    <p>{{offers[i].description}}</p>
+
+    <button onclick="onClickApply('{{ offers[i].name }}')" class="btn btn-light" style="background-color: rgb(228, 228, 228);">Apply now</button>
+
+  </div>
+
+  {%endfor%}
+</div>
+
+<script>
+  function onClickApply(name) {
+    confirm("do you want to apply for " + name + " ?")
+    console.log(name);
+    alert("successfully applied for " + name)
+  }
+
+</script>
+
+{% endblock %}
