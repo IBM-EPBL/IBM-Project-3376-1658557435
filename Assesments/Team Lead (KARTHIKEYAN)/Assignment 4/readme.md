@@ -2,6 +2,8 @@
 
 Assignment Kubernetes / Docker 
 
+[view the document](assignment-4.pdf)
+
 - [x] [Pull an Image from docker hub and run it in docker playground](run-on-docker-playground)
 - [x] [Create a docker file for the jobportal application and deploy it in Docker desktop application](jobportal-app)
 - [x] Create a IBM container registry and deploy helloworld app or jobportalapp. 
