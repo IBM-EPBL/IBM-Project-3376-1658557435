@@ -1,0 +1,45 @@
+{% extends 'base.html' %} --> 
+{% block body %}
+
+
+<form method="post">
+  <div class="mb-3">    
+    <h1>Create an account</h1>
+  </div>
+
+  <div class="mb-3">
+    <label for="name_input" class="form-label">Full name</label>
+    <input type="text" name="name" class="form-control" id="name_input">    
+  </div>
+
+  <div class="mb-3">
+    <label for="email_input" class="form-label">Email address</label>
+    <input type="email" name="email" class="form-control" id="email_input">    
+  </div>
+
+  <div class="mb-3">
+    <label for="password_input" class="form-label">Password</label>
+    <input type="password" name="password" class="form-control" id="password_input">    
+  </div>
+
+  <div class="mb-3">
+    <label for="retyped_password_input" class="form-label">Retyped password</label>
+    <input type="password" name="retyped_password" class="form-control" id="retyped_password_input">    
+  </div>
+
+  {% if error %}
+  <div class="mb-3 text-danger" style="display: flex; justify-content: center;">
+    <p>{{ error }}</p>
+  </div>
+  {% endif %}
+
+  <button type="submit" class="mb-3 btn btn-primary">Continue</button>
+  
+  <div class="mb-3" style="display: flex; justify-content: center;">
+    <a href="login">login? click here</a>
+  </div>
+</form> 
+
+
+  
+{% endblock %}

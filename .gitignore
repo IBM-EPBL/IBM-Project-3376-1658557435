@@ -5,4 +5,6 @@ extras
 .vscode
 .raw
 
+keys.py
+
 DigiCertGlobalRootCA.crt
