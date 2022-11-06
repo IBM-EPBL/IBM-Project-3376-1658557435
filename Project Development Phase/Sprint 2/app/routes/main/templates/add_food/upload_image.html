@@ -1,0 +1,51 @@
+{% extends 'main.html' %}
+
+{% block username %}
+
+{{ username }}
+
+{% endblock %}
+
+{% block main_body %}
+<div class="w-screen h-screen flex flex-row justify-center items-center">
+
+  <form method="post" enctype="multipart/form-data" class="flex flex-col items-center text-center max-w-xl w-full m-5">
+    <h1 class="mb-5 text-2xl font-bold">Upload Food Image</h1>    
+    <input type="file" name="food_image" id="food_image" class="text-center mb-5 " accept="image/png, image/jpeg" required>
+    
+    <img id="img_preview" class="object-cover" style="height:50vh" hidden/>
+
+    {% if error %}
+    <div class="mb-3 text-danger" style="display: flex; justify-content: center;">
+      <p>{{ error }}</p>
+    </div>
+    {% endif %}
+
+    <button type="submit" class="w-full inline-block px-6 py-2.5 rounded-sm bg-violet-500 mb-5 mt-5">Continue</button>
+  </form>
+</div>
+
+<script>
+
+  const chooseFile = document.getElementById("food_image");
+  const imgPreview = document.getElementById("img_preview");
+
+  chooseFile.addEventListener("change", function () {
+    getImgData();
+  });
+
+  function getImgData() {
+    const files = chooseFile.files[0];
+    if (files) {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(files);
+      fileReader.addEventListener("load", function () {
+        imgPreview.src = this.result;
+        imgPreview.hidden = false;
+      });
+    }
+  }
+
+</script>
+
+{% endblock %}

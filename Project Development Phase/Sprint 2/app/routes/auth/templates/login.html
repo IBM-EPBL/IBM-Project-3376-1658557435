@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="w-screen h-screen flex flex-row justify-center items-center">
+
+  <form method="post" class="flex flex-col items-center max-w-xl w-full m-5">
+    <h1 class="mb-5 text-2xl font-bold">Welcome! Login</h1>
+
+    <p class="mb-3 w-full">Email address</p>
+    <input type="email" name="email" class="bg-surfaceVariant rounded-sm block w-full p-3 bg-zinc-800 mb-3" />
+
+    <p class="mb-3 w-full">Password</p>
+    <input type="password" name="password" class="bg-surfaceVariant rounded-sm block w-full p-3 bg-zinc-800 mb-3" />
+
+    {% if error %}
+    <p class="mb-3 text-red-500">{{ error }}</p>
+    {% endif %}
+
+    <button type="submit" class="w-full inline-block px-6 py-2.5 rounded-sm bg-violet-500 mb-5 mt-5">Continue</button>
+
+    <a href="register">register? click here</a>
+  </form>
+
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="flex flex-wrap justify-center">
+  <a class="p-2 m-2 bg-zinc-800 hover:bg-violet-500 rounded-lg">My history</a>
+  <a class="p-2 m-2 bg-zinc-800 hover:bg-violet-500 rounded-lg">Overview</a>
+  <a class="p-2 m-2 bg-zinc-800 hover:bg-violet-500 rounded-lg">Plan</a>
+  <a class="p-2 m-2 bg-violet-500 hover:bg-violet-500 rounded-lg" href="add_food">Add Food</a>
+</div>
+
+<p class="text-xl font-bold w-full text-center my-10">My history</p>
+
+<div class="flex flex-col items-center">
+  {%for n_detail in nutrition_details %}
+      <div class="p-3 w-full max-w-xl">
+        <div class="flex flex-col items-start justify-center bg-zinc-800 rounded-lg p-3 w-full max-w-xl">
+          <p class="text-xl font-bold">{{ n_detail['time'] }}</p>
+          <p class="font-bold mb-5">{{ n_detail['name'] }}</p>
+          <p><span class="text-green-500 font-bold">Calories:</span> {{ n_detail['calories'] }} calories</p>
+          <p><span class="text-yellow-500 font-bold">Fats:</span> {{ n_detail['fat'] }} g</p>
+          <p><span class="text-blue-500 font-bold">Protein:</span> {{ n_detail['protein'] }} g</p>
+          <p><span class="text-pink-500 font-bold">Carbs:</span> {{ n_detail['carbs'] }} g</p>
+        </div>
+      </div>
+  
+  {%endfor%}
+</div>
+
+{% endblock %}
