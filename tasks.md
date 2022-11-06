@@ -11,11 +11,11 @@
   - [x] Install IBM Cloud CLI
   - [x] Docker CLI Installation
   - [ ] Create an account in sendgrid
-  - [ ] Create an account in Nutrition api
-- [ ] Implementing Web Application
-  - [ ] Create UI to interact with Application
-  - [ ] Create IBM DB2 And Connect with Python
-  - [ ] Integrate Nutrition API
+  - [x] Create an account in Nutrition api
+- [x] Implementing Web Application
+  - [x] Create UI to interact with Application
+  - [x] Create IBM DB2 And Connect with Python
+  - [x] Integrate Nutrition API
 - [ ] Integrate SendGrid Service
   - [ ] SendGrid Integration with Python code
 - [ ] Deployment of App in IBM Cloud
