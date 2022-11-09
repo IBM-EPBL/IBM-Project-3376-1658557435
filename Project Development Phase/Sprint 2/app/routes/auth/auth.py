@@ -35,7 +35,6 @@ def register():
     else:
       return render_template('register.html', error="user already exists")
 
-
 @auth_bp.route('/login', methods = ['POST', 'GET'])
 def login():
   if request.method == 'GET':  

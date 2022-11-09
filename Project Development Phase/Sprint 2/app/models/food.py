@@ -61,7 +61,7 @@ class Food():
     while ibm_db.fetch_row(prep_stmt) != False:
       foods.append({
         "name": ibm_db.result(prep_stmt, "NAME"),
-        'time': datetime.fromtimestamp(ibm_db.result(prep_stmt, "TIME")).ctime(),
+        'time': datetime.fromtimestamp(ibm_db.result(prep_stmt, "TIME")),
         "accuracy": 0,
         "calories": ibm_db.result(prep_stmt, "CALORIES"),
         "fat": ibm_db.result(prep_stmt, "FAT"),

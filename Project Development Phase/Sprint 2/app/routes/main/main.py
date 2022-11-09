@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import date, datetime
 import json
 from flask import Blueprint, redirect, render_template, request, session
 from random import randint
@@ -16,19 +16,65 @@ main_bp = Blueprint('main_bp', __name__, template_folder='templates', static_fol
 @main_bp.route('/my_history', methods = ['POST', 'GET'])
 @validate_token
 def main():
-  try:  
-    return render_template('homepage.html', nutrition_details=main_controller.fetch_food(session['user']['userid']))
-  except Exception as e:
-    print(e)
-    return "null"
+    try:  
+        nds = main_controller.fetch_food(session['user']['userid'])
+        for nd in nds:
+            nd['time'] = nd['time'].ctime()
+
+        return render_template('my_history.html', nutrition_details=nds)
+    except Exception as e:
+        print(e)
+        return "null"
+
+
+@main_bp.route('/overview')
+@validate_token
+def overview():
+    try:
+        nutrition_details = main_controller.fetch_food(session['user']['userid'])
+
+        time_arr = []
+        calories_arr = []
+        fat_arr = []
+        protein_arr = []
+        carbs_arr = []
+
+        calories=0
+        fat=0
+        protein=0
+        carbs=0        
+
+        for nd in nutrition_details:
+            time_arr.append(nd['time'].strftime("%d/%m/%Y %H:%M:%S"))
+            calories_arr.append(nd['calories'])
+            fat_arr.append(nd['fat'])
+            protein_arr.append(nd['protein'])
+            carbs_arr.append(nd['carbs'])
+            
+            calories = nd['calories']
+            fat = nd['fat']
+            protein = nd['protein']
+            carbs = nd['carbs']
+
+        calories=calories/len(nutrition_details)
+        fat=fat/len(nutrition_details)
+        protein=protein/len(nutrition_details)
+        carbs=carbs/len(nutrition_details)
+        
+        return render_template('overview.html', calories=calories, fat=fat, protein=protein, carbs=carbs, time_arr=time_arr, calories_arr=calories_arr, fat_arr=fat_arr, protein_arr=protein_arr, carbs_arr=carbs_arr)
+    except Exception as e:
+        print(e)
+        return "null"
 
 
 @main_bp.route('/add_food')
+@validate_token
 def add_food():    
     return render_template('add_food/actions.html')
 
 
 @main_bp.route('/upload_image', methods=['GET', 'POST'])
+@validate_token
 def upload_image(): 
     if request.method == 'POST':
         if 'food_image' not in request.files:
@@ -53,6 +99,7 @@ def upload_image():
 
 
 @main_bp.route('/add_details', methods=['GET', 'POST'])
+@validate_token
 def add_details():
     name = ''
     accuracy = ''
@@ -76,7 +123,7 @@ def add_details():
             main_controller.save_food(user['userid'], food) 
 
             # return to home page
-            return redirect('/')               
+            return redirect('/main')               
 
         except Exception as e:
             return render_template('add_food/add_details.html', name=name, accuracy=accuracy, calories=calories, fat=fat, protein=protein, carbs=carbs, error=str(e))
