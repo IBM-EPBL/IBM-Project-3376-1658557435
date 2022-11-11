@@ -19,15 +19,17 @@ def main():
     try:  
         nds = main_controller.fetch_food(session['user']['userid'])
         for nd in nds:
-            nd['time'] = nd['time'].ctime()
+            nd['time'] = nd['time'].strftime('%d %b %I %p')
 
-        return render_template('my_history.html', nutrition_details=nds)
+        print(nds)
+
+        return render_template('my_history.html', nd_len=len(nds), nutrition_details=nds)
     except Exception as e:
         print(e)
         return "null"
 
 
-@main_bp.route('/overview')
+@main_bp.route('/stats')
 @validate_token
 def overview():
     try:
@@ -56,12 +58,15 @@ def overview():
             protein = nd['protein']
             carbs = nd['carbs']
 
-        calories=calories/len(nutrition_details)
-        fat=fat/len(nutrition_details)
-        protein=protein/len(nutrition_details)
-        carbs=carbs/len(nutrition_details)
+        nd_len = len(nutrition_details)
+        if nd_len <= 0:
+            nd_len = 1
+        calories=calories/nd_len
+        fat=fat/nd_len
+        protein=protein/nd_len
+        carbs=carbs/nd_len
         
-        return render_template('overview.html', calories=calories, fat=fat, protein=protein, carbs=carbs, time_arr=time_arr, calories_arr=calories_arr, fat_arr=fat_arr, protein_arr=protein_arr, carbs_arr=carbs_arr)
+        return render_template('stats.html', calories=calories, fat=fat, protein=protein, carbs=carbs, time_arr=time_arr, calories_arr=calories_arr, fat_arr=fat_arr, protein_arr=protein_arr, carbs_arr=carbs_arr)
     except Exception as e:
         print(e)
         return "null"

@@ -5,19 +5,27 @@
 <p class="text-xl font-bold w-full text-center my-10">My history</p>
 
 <div class="flex flex-col items-center">
+  {% if nd_len != 0 %}
+
   {%for n_detail in nutrition_details %}
-      <div class="p-3 w-full max-w-xl">
-        <div class="flex flex-col items-start justify-center bg-zinc-800 rounded-lg p-3 w-full max-w-xl">
-          <p class="text-xl font-bold">{{ n_detail['time'] }}</p>
-          <p class="font-bold mb-5">{{ n_detail['name'] }}</p>
-          <p><span class="text-green-500 font-bold">Calories:</span> {{ n_detail['calories'] }} calories</p>
-          <p><span class="text-yellow-500 font-bold">Fats:</span> {{ n_detail['fat'] }} g</p>
-          <p><span class="text-blue-500 font-bold">Protein:</span> {{ n_detail['protein'] }} g</p>
-          <p><span class="text-pink-500 font-bold">Carbs:</span> {{ n_detail['carbs'] }} g</p>
-        </div>
+  <div class="p-3 w-full max-w-xl">
+    <div class="flex flex-col items-start justify-center bg-zinc-800 rounded-lg p-3 w-full max-w-xl">
+      <div class="flex mb-4 justify-between items-center w-full">
+        <p class="text-xl font-bold">{{ n_detail['name'] }}</p>
+        <p class="text-lg">{{ n_detail['time'] }}</p>
       </div>
-  
+      <p><span class="text-green-500 font-bold">Calories:</span> {{ n_detail['calories'] }} calories</p>
+      <p><span class="text-yellow-500 font-bold">Fats:</span> {{ n_detail['fat'] }} g</p>
+      <p><span class="text-blue-500 font-bold">Protein:</span> {{ n_detail['protein'] }} g</p>
+      <p><span class="text-pink-500 font-bold">Carbs:</span> {{ n_detail['carbs'] }} g</p>
+    </div>
+  </div>
   {%endfor%}
+
+  {% else %}
+  <p class="text-xl text-center font-bold w-full my-10">No records yet! start adding your food summary by clicking `Add Food`
+    button!</p>
+  {% endif %}
 </div>
 
 {% endblock %}

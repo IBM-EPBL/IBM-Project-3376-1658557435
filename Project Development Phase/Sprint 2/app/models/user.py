@@ -44,16 +44,17 @@ class User():
     
   @staticmethod
   def insert_user(user):
-    user = User.fetch_user_by_email(email=user.email)
+    print(user)
+    fetched_user = User.fetch_user_by_email(email=user.email)
 
-    if user:
-      return user
+    if fetched_user:
+      return fetched_user
 
     insert_sql = f"INSERT INTO {User.users_table}(name, email, password) VALUES (?, ?, ?)"
     prep_stmt = ibm_db.prepare(conn, insert_sql)
     ibm_db.bind_param(prep_stmt, 1, user.name)
     ibm_db.bind_param(prep_stmt, 2, user.email)
     ibm_db.bind_param(prep_stmt, 3, user.password)
-    ibm_db.execute(prep_stmt)
-
+    print(ibm_db.execute(prep_stmt))
+        
     return user
