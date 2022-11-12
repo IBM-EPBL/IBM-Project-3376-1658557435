@@ -13,7 +13,11 @@ The code is present in the [./app](./app) dir.
 ## screenshots
 
 ![](./screenshots/my_history.png)
+
 ![](./screenshots/stats.png)
+
 ![](./screenshots/add_food.png)
+
 ![](./screenshots/upload_image.png)
+
 ![](./screenshots/add_details.png)

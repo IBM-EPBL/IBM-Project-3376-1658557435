@@ -11,5 +11,7 @@ The code is present in the [./app](./app) dir.
 ## Screenshots
 
 ![](./screenshots/login_page.png)
+
 ![](./screenshots/register_page.png)
+
 ![](./screenshots/verification_email.png)

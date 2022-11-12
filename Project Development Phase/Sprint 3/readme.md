@@ -8,7 +8,8 @@ The bot is present in the [bot html](./bot.html)
 - [x] As a user, I can get some diet plans by queries nutrition API
 - [x] As a user, I can get some diet based queries by using the chat bot
 
-## screenshots
+## Screenshots
 
 ![](./screenshots/bot.png)
+
 ![](./screenshots/bot2.png)
