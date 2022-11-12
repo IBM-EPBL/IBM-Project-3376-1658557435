@@ -1,5 +1,5 @@
 import jwt
-from keys import SERVER_SECRET
+from keys import SERVER_SECRET, AUTH_SERVER_URL,AUTH_SERVER_REDIRECT_URL
 from flask import request, redirect, session
 import requests
 
@@ -16,7 +16,7 @@ def validate_token(func):
             if token == None:
               raise Exception()              
             
-            res = requests.get(f'{request.root_url}auth/isvalid?token={token}&ss={SERVER_SECRET}').json()
+            res = requests.get(f'{AUTH_SERVER_URL}isvalid?token={token}&ss={SERVER_SECRET}').json()
             
             if res['status'] == True:
                 session['user'] = res['user']
@@ -26,7 +26,7 @@ def validate_token(func):
 
         except Exception as e:
             print(e)
-            return redirect("/")
+            return redirect(AUTH_SERVER_REDIRECT_URL)
             
     wrapper.__name__ = func.__name__
     return wrapper

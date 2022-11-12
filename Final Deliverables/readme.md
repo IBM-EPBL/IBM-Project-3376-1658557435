@@ -18,6 +18,6 @@ Routes:
   - /my_history
   - /stats
   - /add_food
-    - /actions
+    - /
     - /upload_image
     - /add_details

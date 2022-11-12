@@ -3,5 +3,4 @@ ibm_db
 ibm-cos-sdk
 pyjwt
 requests
-
-sib-api-v3-sdk
+trycourier
