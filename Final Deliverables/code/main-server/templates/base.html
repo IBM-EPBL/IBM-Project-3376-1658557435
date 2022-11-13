@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App</title>
+
+  <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}" />
+
+  <!-- tailwindcss -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  {% block head %} {% endblock %}
+
+</head>
+
+<style>
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  p,
+  h1 {
+    padding: 0;
+    margin: 0;
+  }
+</style>
+
+<body class="bg-zinc-900 text-white">
+  {% block body %} {% endblock %}
+</body>
+
+</html>
