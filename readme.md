@@ -7,7 +7,7 @@
 
 ### Demo Video Link
 
-[Watch demo](https://youtu.be/JFRLPu-cDVw)
+[Watch demo on youtube](https://youtu.be/JFRLPu-cDVw)
 
 ### Abstract
 

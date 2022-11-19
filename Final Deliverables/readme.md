@@ -4,8 +4,11 @@
 
 - [x] the final code [view](code)
 - [x] demonstration video link [view](demo.webm)
-- [ ] project report
+- [x] project report
 
+## Explaination Video Link
+
+[Watch demo on youtube](https://youtu.be/JFRLPu-cDVw)
 
 ### Demo Link
 
